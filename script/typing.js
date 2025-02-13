@@ -197,6 +197,10 @@ let totalTyped = 0;
 let isGameActive = false;
 
 document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('selectstart', (e) => {
+    e.preventDefault();
+  });
+
   const modeButtons = document.querySelectorAll('.mode-btn');
   const subModeButtons = document.querySelectorAll('.sub-mode-btn');
   const languageSelector = document.querySelector('.language-selector');
@@ -299,6 +303,10 @@ function displayText() {
 }
 
 function handleTyping(e) {
+  if (e.key === ' ') {
+    e.preventDefault();
+  }
+
   if (!isGameActive && e.key.length === 1) {
     startGame();
   }
