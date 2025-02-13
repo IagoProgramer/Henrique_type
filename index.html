@@ -10,7 +10,7 @@
   
   <div class="container">
     <header class="header">
-      <h1 class="logo">Henrique Type</h1>
+      <h1 class="logo" data-text="Henrique Type">Henrique Type</h1>
     </header>
 
     <div class="mode-selector">
@@ -20,6 +20,12 @@
       <button class="mode-btn">Java</button>
       <button class="mode-btn">C#</button>
       <button class="mode-btn">HTML/CSS</button>
+    </div>
+
+    <div class="sub-mode-selector">
+      <button class="sub-mode-btn active" data-mode="normal">Normal</button>
+      <button class="sub-mode-btn" data-mode="accents">Com Acentos</button>
+      <button class="sub-mode-btn" data-mode="punctuation">Com Pontuação</button>
     </div>
 
     <select class="language-selector">
@@ -44,14 +50,13 @@
         <div class="stat-label">Precisão</div>
       </div>
       <div class="stat-item">
-        <div class="stat-value" id="time">30s</div>
+        <div class="stat-value" id="time">60s</div>
         <div class="stat-label">Tempo</div>
       </div>
     </div>
 
     <button class="restart-btn">Reiniciar</button>
   </div>
-
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script src="./script/typing.js"></script>
   <script src="./script/animations.js"></script>
