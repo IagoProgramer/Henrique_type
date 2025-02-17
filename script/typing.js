@@ -73,40 +73,30 @@ const texts = {
     javascript: {
       easy: {
         normal: [
-          "array objeto string numero funcao metodo classe evento loop codigo retorno escopo dados",
-          "botao formulario campo texto lista menu tabela modal janela interface layout estrutura",
-          "variavel constante escopo local global funcao regex expressao modulo componente estado",
-          "promise async await fetch api rest crud token cookie sessao storage cache proxy middleware",
-          "frontend backend fullstack deploy servidor cliente banco dados hospedagem dominio dns ssl",
-          "framework biblioteca componente estado prop hook contexto redux mobx styled router saga",
-          "typescript javascript node express react angular vue svelte jquery bootstrap tailwind",
-          "webpack babel eslint prettier jest karma mocha chai cypress selenium docker kubernetes",
-          "algoritmo estrutura dados arvore grafo pilha fila hash tabela ordenacao busca recursao",
-          "debug erro excecao log teste unitario mock stub spy cobertura qualidade performance"
+          "const let var function return if else for while do break continue switch case default class",
+          "async await Promise fetch then catch finally try throw new this super extends implements",
+          "import export default from as module require package node npm install dependencies devDependencies",
+          "array object string number boolean null undefined symbol map set weakmap weakset date math",
+          "console log error info warn debug trace assert clear count time timeEnd group groupEnd",
+          "dom document window element node text fragment event listener mutation observer selector",
+          "react component props state hooks effect context redux saga thunk middleware store reducer",
+          "angular component service pipe directive module decorator injection template routing guard",
+          "vue component template script style props emit watch computed methods lifecycle directives",
+          "typescript interface type enum namespace declare extends implements public private protected"
         ],
         accents: [
-          "array objeto string número função método classe evento loop código retorno escopo dados",
-          "botão formulário campo texto lista menu tabela modal janela interface layout estrutura",
-          "variável constante escopo local global função regex expressão módulo componente estado",
-          "promise async await fetch api rest crud token cookie sessão storage cache proxy middleware",
-          "frontend backend fullstack deploy servidor cliente banco dados hospedagem domínio dns ssl",
-          "framework biblioteca componente estado prop hook contexto redux mobx styled router saga",
-          "typescript javascript node express react angular vue svelte jquery bootstrap tailwind",
-          "webpack babel eslint prettier jest karma mocha chai cypress selenium docker kubernetes",
-          "algoritmo estrutura dados árvore grafo pilha fila hash tabela ordenação busca recursão",
-          "debug erro exceção log teste unitário mock stub spy cobertura qualidade performance"
+          "função retorno variável método classe construtor herança polimorfismo encapsulamento",
+          "programação orientada objetos módulo pacote biblioteca dependência desenvolvimento produção",
+          "aplicação cliente servidor banco dados conexão requisição resposta autenticação autorização",
+          "código fonte debug erro exceção log teste unitário integração cobertura qualidade padrão",
+          "interface usuário componente template estilo diretiva serviço injeção dependência roteamento"
         ],
         punctuation: [
-          "array, objeto, string, número, função, método, classe, evento, loop, código, retorno, escopo, dados.",
-          "botão, formulário, campo, texto, lista, menu, tabela, modal, janela, interface, layout, estrutura.",
-          "variável, constante, escopo, local, global, função, regex, expressão, módulo, componente, estado.",
-          "promise, async, await, fetch, api, rest, crud, token, cookie, sessão, storage, cache, proxy, middleware.",
-          "frontend, backend, fullstack, deploy, servidor, cliente, banco, dados, hospedagem, domínio, dns, ssl.",
-          "framework, biblioteca, componente, estado, prop, hook, contexto, redux, mobx, styled, router, saga.",
-          "typescript, javascript, node, express, react, angular, vue, svelte, jquery, bootstrap, tailwind.",
-          "webpack, babel, eslint, prettier, jest, karma, mocha, chai, cypress, selenium, docker, kubernetes.",
-          "algoritmo, estrutura, dados, árvore, grafo, pilha, fila, hash, tabela, ordenação, busca, recursão.",
-          "debug, erro, exceção, log, teste, unitário, mock, stub, spy, cobertura, qualidade, performance."
+          "function multiply(x, y) { return x * y; }",
+          "const array = [1, 2, 3, 4, 5];",
+          "let obj = { name: 'John', age: 30 };",
+          "if (condition) { doSomething(); }",
+          "for (let i = 0; i < array.length; i++) { }"
         ]
       }
     }
@@ -182,6 +172,122 @@ const texts = {
         ]
       }
     }
+  },
+  python: {
+    easy: {
+      normal: [
+        "def class return yield lambda if elif else for while break continue pass raise try except",
+        "import from as with open print input range len str int float list tuple dict set bool",
+        "self super none true false and or not in is global nonlocal del assert match case",
+        "list comprehension generator decorator iterator iterable sequence mapping callable hashable",
+        "pandas numpy matplotlib scikit learn tensorflow keras pytorch seaborn requests beautiful soup",
+        "django flask fastapi pyramid web framework template view model controller router middleware",
+        "object oriented programming inheritance polymorphism encapsulation abstraction interface class",
+        "virtual environment package manager pip conda requirements dependencies development production",
+        "database sql nosql mongodb postgresql mysql sqlite oracle connection query schema migration",
+        "unit test pytest unittest mock fixture coverage quality assurance continuous integration"
+      ],
+      accents: [
+        "função retorno variável método classe construtor herança polimorfismo encapsulamento",
+        "programação orientada objetos módulo pacote biblioteca dependência desenvolvimento produção",
+        "aplicação cliente servidor banco dados conexão requisição resposta autenticação autorização",
+        "código fonte depuração erro exceção registro teste unitário integração cobertura qualidade"
+      ],
+      punctuation: [
+        "def calculate_sum(a, b):",
+        "class Person(object):",
+        "if condition == True:",
+        "for item in items:",
+        "try: except Exception as e:"
+      ]
+    }
+  },
+  java: {
+    easy: {
+      normal: [
+        "public private protected class interface extends implements abstract static final void return",
+        "int long double float boolean char string byte short array list map set queue stack vector",
+        "if else for while do break continue switch case default try catch finally throw throws new",
+        "package import class method constructor inheritance polymorphism encapsulation abstraction",
+        "spring boot hibernate jpa rest api mvc repository service controller entity component bean",
+        "maven gradle dependency management build tool test junit mockito selenium jenkins docker",
+        "collection framework list set queue map iterator comparator comparable serializable cloneable",
+        "exception handling runtime error checked unchecked custom throw throws try catch finally",
+        "thread runnable callable future executor service parallel stream synchronize volatile atomic",
+        "object oriented programming inheritance polymorphism encapsulation abstraction interface enum"
+      ],
+      accents: [
+        "função retorno variável método classe construtor herança polimorfismo encapsulamento",
+        "programação orientada objetos módulo pacote biblioteca dependência desenvolvimento produção",
+        "aplicação cliente servidor banco dados conexão requisição resposta autenticação autorização",
+        "código fonte depuração erro exceção registro teste unitário integração cobertura qualidade"
+      ],
+      punctuation: [
+        "public class Main { }",
+        "if (condition) { }",
+        "for (int i = 0; i < n; i++) { }",
+        "try { } catch (Exception e) { }",
+        "public void method() { }"
+      ]
+    }
+  },
+  csharp: {
+    easy: {
+      normal: [
+        "public private protected internal class interface struct enum delegate event using namespace",
+        "int long double decimal float bool char string object dynamic var list dictionary hashset",
+        "if else for foreach while do break continue switch case default try catch finally throw new",
+        "async await task parallel linq lambda expression extension method attribute reflection generic",
+        "asp net core mvc api controller action filter middleware service dependency injection entity",
+        "nuget package manager visual studio resharper rider debug test mstest nunit xunit moq",
+        "collection list dictionary hashset queue stack linked list sorted list concurrent collection",
+        "exception handling try catch finally throw custom exception debug trace console log assertion",
+        "thread task parallel programming async await synchronization lock monitor semaphore mutex",
+        "wpf xaml windows forms blazor razor pages signal entity framework core dapper identity"
+      ],
+      accents: [
+        "função retorno variável método classe construtor herança polimorfismo encapsulamento",
+        "programação orientada objetos módulo pacote biblioteca dependência desenvolvimento produção",
+        "aplicação cliente servidor banco dados conexão requisição resposta autenticação autorização",
+        "código fonte depuração erro exceção registro teste unitário integração cobertura qualidade"
+      ],
+      punctuation: [
+        "public class Program { }",
+        "if (condition) { }",
+        "foreach (var item in items) { }",
+        "try { } catch (Exception ex) { }",
+        "public void Method() { }"
+      ]
+    }
+  },
+  htmlcss: {
+    easy: {
+      normal: [
+        "html head body div span p a img ul ol li table tr td th form input button select option",
+        "header nav main section article aside footer figure figcaption picture source time details",
+        "display flex grid block inline none position relative absolute fixed sticky float clear",
+        "margin padding border width height background color font text align transform transition",
+        "media query breakpoint responsive mobile desktop tablet container wrapper layout framework",
+        "sass scss variable mixin extend import function directive operator nesting parent selector",
+        "bootstrap tailwind foundation bulma material design semantic ui element component utility",
+        "animation keyframes transform transition filter blur opacity gradient shadow outline border",
+        "flexbox grid container item justify content align items self wrap direction basis grow",
+        "selector class id attribute pseudo element combinators specificity inheritance cascading"
+      ],
+      accents: [
+        "seletor classe identificador atributo elemento pseudo combinação especificidade herança",
+        "animação transformação transição filtro gradiente sombra contorno borda espaçamento",
+        "posição relativa absoluta fixa aderente flutuante limpar margem preenchimento altura",
+        "mídia consulta ponto quebra responsivo móvel área trabalho tablet recipiente estrutura"
+      ],
+      punctuation: [
+        "<div class=\"container\"> </div>",
+        "<p id=\"paragraph\">Text</p>",
+        "@media screen and (max-width: 768px) { }",
+        ".class { property: value; }",
+        "#id { margin: 0; padding: 0; }"
+      ]
+    }
   }
 };
 
@@ -191,7 +297,7 @@ let currentSubMode = 'normal';
 let currentLanguage = 'pt';
 let currentIndex = 0;
 let timer = null;
-let timeLeft = 60;
+let timeLeft = 30;
 let errors = 0;
 let totalTyped = 0;
 let isGameActive = false;
@@ -207,10 +313,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const restartButton = document.querySelector('.restart-btn');
   const textDisplay = document.querySelector('.text-display');
 
-  // Initialize game
   initGame();
 
-  // Mode selection
   modeButtons.forEach(btn => {
     btn.addEventListener('click', function() {
       modeButtons.forEach(b => b.classList.remove('active'));
@@ -220,7 +324,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Sub-mode selection
   subModeButtons.forEach(btn => {
     btn.addEventListener('click', function() {
       subModeButtons.forEach(b => b.classList.remove('active'));
@@ -230,21 +333,66 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Language selection
   languageSelector.addEventListener('change', function() {
     currentLanguage = this.value;
     initGame();
   });
 
-  // Restart button
   restartButton.addEventListener('click', initGame);
 
-  // Typing event
   document.addEventListener('keydown', handleTyping);
+
+  document.addEventListener('touchend', function(event) {
+    event.preventDefault();
+    const touch = event.changedTouches[0];
+    const element = document.elementFromPoint(touch.clientX, touch.clientY);
+    
+    if (element.classList.contains('mode-btn') || 
+        element.classList.contains('sub-mode-btn') || 
+        element.classList.contains('restart-btn')) {
+      element.click();
+    }
+  });
+
+  document.addEventListener('touchmove', function(event) {
+    if (isGameActive) {
+      event.preventDefault();
+    }
+  }, { passive: false });
+
+  document.querySelector('.typing-area').addEventListener('click', function() {
+    if (!isGameActive && /Mobi|Android/i.test(navigator.userAgent)) {
+      const input = document.createElement('input');
+      input.style.position = 'fixed';
+      input.style.opacity = '0';
+      input.style.top = '0';
+      input.style.left = '0';
+      document.body.appendChild(input);
+      input.focus();
+      
+      setTimeout(() => {
+        document.body.removeChild(input);
+      }, 100);
+    }
+  });
+
+  window.addEventListener('orientationchange', function() {
+    setTimeout(function() {
+      window.scrollTo(0, 0);
+    }, 200);
+  });
 });
 
 function initGame() {
-  // Reset game state
+  const languageSelector = document.querySelector('.language-selector');
+  
+  if (currentMode === 'universal') {
+    languageSelector.style.display = 'block';
+  } else {
+    languageSelector.style.display = 'none';
+    currentLanguage = 'pt'; 
+  }
+
   clearInterval(timer);
   currentIndex = 0;
   errors = 0;
@@ -252,30 +400,31 @@ function initGame() {
   timeLeft = 30;
   isGameActive = false;
   
-  // Update timer display
   updateTimer();
   
-  // Get new text
   currentText = getRandomText();
   
-  // Display text
   displayText();
   
-  // Update stats
   updateStats();
 }
 
 function getRandomText() {
-  const difficultyTexts = texts[currentLanguage][currentMode]?.['easy']?.[currentSubMode];
-  if (!difficultyTexts) return 'Text not available';
+  let textSource;
   
-  // Combine all texts into one long string and split into words
-  const allWords = difficultyTexts.join(' ').split(' ');
+  if (currentMode === 'universal') {
+    textSource = texts[currentLanguage][currentMode]?.['easy']?.[currentSubMode];
+  } else {
+    const modeKey = currentMode.toLowerCase().replace('/', '').replace('#', 'sharp');
+    textSource = texts[modeKey]?.['easy']?.[currentSubMode];
+  }
   
-  // Shuffle the words
+  if (!textSource) return 'Text not available';
+  
+  const allWords = textSource.join(' ').split(' ');
+  
   const shuffledWords = allWords.sort(() => Math.random() - 0.5);
   
-  // Take first 50 words and join them
   return shuffledWords.slice(0, 50).join(' ');
 }
 
@@ -289,7 +438,6 @@ function displayText() {
   const textLine = document.createElement('div');
   textLine.classList.add('text-line');
   
-  // Create spans for each character
   currentText.split('').forEach((char, index) => {
     const span = document.createElement('span');
     span.classList.add('char');
@@ -313,32 +461,39 @@ function handleTyping(e) {
 
   if (!isGameActive) return;
 
-  const currentChar = currentText[currentIndex];
-  const typedChar = e.key;
-
-  if (typedChar === currentChar) {
-    // Correct character
-    markCharacter(currentIndex, 'correct');
-    currentIndex++;
-    totalTyped++;
-  } else if (e.key.length === 1) {
-    // Incorrect character
-    markCharacter(currentIndex, 'incorrect');
-    errors++;
-    totalTyped++;
-  }
-
-  // Move current marker
-  if (currentIndex < currentText.length) {
-    updateCurrentCharacter();
-    
-    // If we're 75% through the current text, generate and append more words
-    if (currentIndex > (currentText.length * 0.75)) {
-      appendMoreWords();
+  if (/Mobi|Android/i.test(navigator.userAgent)) {
+    const input = e.target;
+    if (input.tagName === 'INPUT') {
+      const char = input.value.slice(-1);
+      if (char) {
+        processTypedCharacter(char);
+      }
+      input.value = '';
     }
-  }
+  } else {
+    const currentChar = currentText[currentIndex];
+    const typedChar = e.key;
 
-  updateStats();
+    if (typedChar === currentChar) {
+      markCharacter(currentIndex, 'correct');
+      currentIndex++;
+      totalTyped++;
+    } else if (e.key.length === 1) {
+      markCharacter(currentIndex, 'incorrect');
+      errors++;
+      totalTyped++;
+    }
+
+    if (currentIndex < currentText.length) {
+      updateCurrentCharacter();
+      
+      if (currentIndex > (currentText.length * 0.75)) {
+        appendMoreWords();
+      }
+    }
+
+    updateStats();
+  }
 }
 
 function markCharacter(index, status) {
@@ -353,7 +508,6 @@ function updateCurrentCharacter() {
   if (currentIndex < chars.length) {
     chars[currentIndex].classList.add('current');
     
-    // Scroll text to keep current character visible
     const currentChar = chars[currentIndex];
     const container = document.querySelector('.text-display');
     const lineContainer = document.querySelector('.line-container');
@@ -382,10 +536,8 @@ function endGame() {
     clearInterval(timer);
     isGameActive = false;
     
-    // Store current text for potential replay
     const lastText = currentText;
     
-    // Create and show report modal
     showReport(lastText);
   }
 }
@@ -394,17 +546,13 @@ function appendMoreWords() {
   const difficultyTexts = texts[currentLanguage][currentMode]?.['easy']?.[currentSubMode];
   if (!difficultyTexts) return;
   
-  // Get all words and shuffle them
   const allWords = difficultyTexts.join(' ').split(' ');
   const shuffledWords = allWords.sort(() => Math.random() - 0.5);
   
-  // Take 20 new words
   const newWords = shuffledWords.slice(0, 20).join(' ');
   
-  // Append to current text
   currentText += ' ' + newWords;
   
-  // Update display
   const textLine = document.querySelector('.text-line');
   newWords.split('').forEach(char => {
     const span = document.createElement('span');
@@ -448,12 +596,10 @@ function showReport(lastText) {
     </div>
   `;
 
-  // Add modal to body
   const modalElement = document.createElement('div');
   modalElement.innerHTML = modalHTML;
   document.body.appendChild(modalElement);
 
-  // Add event listeners for buttons
   const sameTextBtn = modalElement.querySelector('.restart-same-btn');
   const newTextBtn = modalElement.querySelector('.restart-new-btn');
 
@@ -469,7 +615,6 @@ function showReport(lastText) {
 }
 
 function restartSameText(text) {
-  // Reset game state but keep the same text
   clearInterval(timer);
   currentIndex = 0;
   errors = 0;
@@ -477,19 +622,14 @@ function restartSameText(text) {
   timeLeft = 30;
   isGameActive = false;
   
-  // Set the same text
   currentText = text;
   
-  // Update timer display
   updateTimer();
   
-  // Display same text
   displayText();
   
-  // Update stats
   updateStats();
 
-  // Reset the scroll position
   const lineContainer = document.querySelector('.line-container');
   if (lineContainer) {
     lineContainer.style.transform = 'translateX(0)';
@@ -519,4 +659,34 @@ function updateStats() {
 
   document.getElementById('wpm').textContent = isFinite(wpm) ? wpm : 0;
   document.getElementById('accuracy').textContent = accuracy + '%';
+}
+
+function processTypedCharacter(char) {
+  if (!isGameActive) {
+    startGame();
+  }
+
+  if (!isGameActive) return;
+
+  const currentChar = currentText[currentIndex];
+
+  if (char === currentChar) {
+    markCharacter(currentIndex, 'correct');
+    currentIndex++;
+    totalTyped++;
+  } else {
+    markCharacter(currentIndex, 'incorrect');
+    errors++;
+    totalTyped++;
+  }
+
+  if (currentIndex < currentText.length) {
+    updateCurrentCharacter();
+    
+    if (currentIndex > (currentText.length * 0.75)) {
+      appendMoreWords();
+    }
+  }
+
+  updateStats();
 }
