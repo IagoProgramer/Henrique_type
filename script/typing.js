@@ -70,7 +70,37 @@ const texts = {
         ]
       }
     },
-    
+    javascript: {
+      easy: {
+        normal: [
+          "const let var function return if else for while do break continue switch case default class",
+          "async await Promise fetch then catch finally try throw new this super extends implements",
+          "import export default from as module require package node npm install dependencies devDependencies",
+          "array object string number boolean null undefined symbol map set weakmap weakset date math",
+          "console log error info warn debug trace assert clear count time timeEnd group groupEnd",
+          "dom document window element node text fragment event listener mutation observer selector",
+          "react component props state hooks effect context redux saga thunk middleware store reducer",
+          "angular component service pipe directive module decorator injection template routing guard",
+          "vue component template script style props emit watch computed methods lifecycle directives",
+          "typescript interface type enum namespace declare extends implements public private protected"
+        ],
+        accents: [
+          "função retorno variável método classe construtor herança polimorfismo encapsulamento",
+          "programação orientada objetos módulo pacote biblioteca dependência desenvolvimento produção",
+          "aplicação cliente servidor banco dados conexão requisição resposta autenticação autorização",
+          "código fonte debug erro exceção log teste unitário integração cobertura qualidade padrão",
+          "interface usuário componente template estilo diretiva serviço injeção dependência roteamento"
+        ],
+        punctuation: [
+          "function multiply(x, y) { return x * y; }",
+          "const array = [1, 2, 3, 4, 5];",
+          "let obj = { name: 'John', age: 30 };",
+          "if (condition) { doSomething(); }",
+          "for (let i = 0; i < array.length; i++) { }"
+        ]
+      }
+    }
+  },
   en: {
     universal: {
       easy: {
@@ -142,36 +172,6 @@ const texts = {
         ]
       }
     }
-  },
-    javascript: {
-      easy: {
-        normal: [
-          "const let var function return if else for while do break continue switch case default class",
-          "async await Promise fetch then catch finally try throw new this super extends implements",
-          "import export default from as module require package node npm install dependencies devDependencies",
-          "array object string number boolean null undefined symbol map set weakmap weakset date math",
-          "console log error info warn debug trace assert clear count time timeEnd group groupEnd",
-          "dom document window element node text fragment event listener mutation observer selector",
-          "react component props state hooks effect context redux saga thunk middleware store reducer",
-          "angular component service pipe directive module decorator injection template routing guard",
-          "vue component template script style props emit watch computed methods lifecycle directives",
-          "typescript interface type enum namespace declare extends implements public private protected"
-        ],
-        accents: [
-          "função retorno variável método classe construtor herança polimorfismo encapsulamento",
-          "programação orientada objetos módulo pacote biblioteca dependência desenvolvimento produção",
-          "aplicação cliente servidor banco dados conexão requisição resposta autenticação autorização",
-          "código fonte debug erro exceção log teste unitário integração cobertura qualidade padrão",
-          "interface usuário componente template estilo diretiva serviço injeção dependência roteamento"
-        ],
-        punctuation: [
-          "function multiply(x, y) { return x * y; }",
-          "const array = [1, 2, 3, 4, 5];",
-          "let obj = { name: 'John', age: 30 };",
-          "if (condition) { doSomething(); }",
-          "for (let i = 0; i < array.length; i++) { }"
-        ]
-      }
   },
   python: {
     easy: {
