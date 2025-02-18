@@ -70,37 +70,7 @@ const texts = {
         ]
       }
     },
-    javascript: {
-      easy: {
-        normal: [
-          "const let var function return if else for while do break continue switch case default class",
-          "async await Promise fetch then catch finally try throw new this super extends implements",
-          "import export default from as module require package node npm install dependencies devDependencies",
-          "array object string number boolean null undefined symbol map set weakmap weakset date math",
-          "console log error info warn debug trace assert clear count time timeEnd group groupEnd",
-          "dom document window element node text fragment event listener mutation observer selector",
-          "react component props state hooks effect context redux saga thunk middleware store reducer",
-          "angular component service pipe directive module decorator injection template routing guard",
-          "vue component template script style props emit watch computed methods lifecycle directives",
-          "typescript interface type enum namespace declare extends implements public private protected"
-        ],
-        accents: [
-          "função retorno variável método classe construtor herança polimorfismo encapsulamento",
-          "programação orientada objetos módulo pacote biblioteca dependência desenvolvimento produção",
-          "aplicação cliente servidor banco dados conexão requisição resposta autenticação autorização",
-          "código fonte debug erro exceção log teste unitário integração cobertura qualidade padrão",
-          "interface usuário componente template estilo diretiva serviço injeção dependência roteamento"
-        ],
-        punctuation: [
-          "function multiply(x, y) { return x * y; }",
-          "const array = [1, 2, 3, 4, 5];",
-          "let obj = { name: 'John', age: 30 };",
-          "if (condition) { doSomething(); }",
-          "for (let i = 0; i < array.length; i++) { }"
-        ]
-      }
-    }
-  },
+    
   en: {
     universal: {
       easy: {
@@ -169,6 +139,37 @@ const texts = {
           "energy, water, light, gas, internet, phone, bill, tax, rent, salary, investment, savings, stock.",
           "morning, afternoon, evening, night, dawn, dusk, sunrise, sunset, today, tomorrow, yesterday, time.",
           "spring, summer, autumn, winter, rain, snow, wind, storm, cloud, rainbow, thunder, lightning, weather."
+        ]
+      }
+    }
+  },
+    javascript: {
+      easy: {
+        normal: [
+          "const let var function return if else for while do break continue switch case default class",
+          "async await Promise fetch then catch finally try throw new this super extends implements",
+          "import export default from as module require package node npm install dependencies devDependencies",
+          "array object string number boolean null undefined symbol map set weakmap weakset date math",
+          "console log error info warn debug trace assert clear count time timeEnd group groupEnd",
+          "dom document window element node text fragment event listener mutation observer selector",
+          "react component props state hooks effect context redux saga thunk middleware store reducer",
+          "angular component service pipe directive module decorator injection template routing guard",
+          "vue component template script style props emit watch computed methods lifecycle directives",
+          "typescript interface type enum namespace declare extends implements public private protected"
+        ],
+        accents: [
+          "função retorno variável método classe construtor herança polimorfismo encapsulamento",
+          "programação orientada objetos módulo pacote biblioteca dependência desenvolvimento produção",
+          "aplicação cliente servidor banco dados conexão requisição resposta autenticação autorização",
+          "código fonte debug erro exceção log teste unitário integração cobertura qualidade padrão",
+          "interface usuário componente template estilo diretiva serviço injeção dependência roteamento"
+        ],
+        punctuation: [
+          "function multiply(x, y) { return x * y; }",
+          "const array = [1, 2, 3, 4, 5];",
+          "let obj = { name: 'John', age: 30 };",
+          "if (condition) { doSomething(); }",
+          "for (let i = 0; i < array.length; i++) { }"
         ]
       }
     }
@@ -313,6 +314,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const restartButton = document.querySelector('.restart-btn');
   const textDisplay = document.querySelector('.text-display');
 
+  if (!modeButtons.length || !subModeButtons.length || !languageSelector || !restartButton || !textDisplay) {
+    console.error('Required UI elements not found');
+    return;
+  }
+
   initGame();
 
   modeButtons.forEach(btn => {
@@ -347,9 +353,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const touch = event.changedTouches[0];
     const element = document.elementFromPoint(touch.clientX, touch.clientY);
     
-    if (element.classList.contains('mode-btn') || 
+    if (element && (element.classList.contains('mode-btn') || 
         element.classList.contains('sub-mode-btn') || 
-        element.classList.contains('restart-btn')) {
+        element.classList.contains('restart-btn'))) {
       element.click();
     }
   });
@@ -360,21 +366,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, { passive: false });
 
-  document.querySelector('.typing-area').addEventListener('click', function() {
-    if (!isGameActive && /Mobi|Android/i.test(navigator.userAgent)) {
-      const input = document.createElement('input');
-      input.style.position = 'fixed';
-      input.style.opacity = '0';
-      input.style.top = '0';
-      input.style.left = '0';
-      document.body.appendChild(input);
-      input.focus();
-      
-      setTimeout(() => {
-        document.body.removeChild(input);
-      }, 100);
-    }
-  });
+  const typingArea = document.querySelector('.typing-area');
+  if (typingArea) {
+    typingArea.addEventListener('click', function() {
+      if (!isGameActive && /Mobi|Android/i.test(navigator.userAgent)) {
+        const input = document.createElement('input');
+        input.style.position = 'fixed';
+        input.style.opacity = '0';
+        input.style.top = '0';
+        input.style.left = '0';
+        document.body.appendChild(input);
+        input.focus();
+        
+        setTimeout(() => {
+          document.body.removeChild(input);
+        }, 100);
+      }
+    });
+  }
 
   window.addEventListener('orientationchange', function() {
     setTimeout(function() {
@@ -386,11 +395,13 @@ document.addEventListener('DOMContentLoaded', () => {
 function initGame() {
   const languageSelector = document.querySelector('.language-selector');
   
-  if (currentMode === 'universal') {
-    languageSelector.style.display = 'block';
-  } else {
-    languageSelector.style.display = 'none';
-    currentLanguage = 'pt'; 
+  if (languageSelector) {
+    if (currentMode === 'universal') {
+      languageSelector.style.display = 'block';
+    } else {
+      languageSelector.style.display = 'none';
+      currentLanguage = 'pt';
+    }
   }
 
   clearInterval(timer);
@@ -401,11 +412,8 @@ function initGame() {
   isGameActive = false;
   
   updateTimer();
-  
   currentText = getRandomText();
-  
   displayText();
-  
   updateStats();
 }
 
@@ -563,6 +571,11 @@ function appendMoreWords() {
 }
 
 function showReport(lastText) {
+  const existingModal = document.querySelector('.report-modal');
+  if (existingModal) {
+    existingModal.remove();
+  }
+
   const modalHTML = `
     <div class="report-modal">
       <div class="report-content">
@@ -603,15 +616,17 @@ function showReport(lastText) {
   const sameTextBtn = modalElement.querySelector('.restart-same-btn');
   const newTextBtn = modalElement.querySelector('.restart-new-btn');
 
-  sameTextBtn.addEventListener('click', () => {
-    modalElement.remove();
-    restartSameText(lastText);
-  });
+  if (sameTextBtn && newTextBtn) {
+    sameTextBtn.addEventListener('click', () => {
+      modalElement.remove();
+      restartSameText(lastText);
+    });
 
-  newTextBtn.addEventListener('click', () => {
-    modalElement.remove();
-    initGame();
-  });
+    newTextBtn.addEventListener('click', () => {
+      modalElement.remove();
+      initGame();
+    });
+  }
 }
 
 function restartSameText(text) {
