@@ -172,7 +172,6 @@ const texts = {
           "for (let i = 0; i < array.length; i++) { }"
         ]
       }
-    }
   },
   python: {
     easy: {
