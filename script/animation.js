@@ -108,3 +108,26 @@ document.querySelectorAll('.sub-mode-btn').forEach(btn => {
     }
   });
 });
+
+// Add developer modal functionality
+document.addEventListener('DOMContentLoaded', () => {
+  const devInfoBtn = document.querySelector('.dev-info-btn');
+  const devModal = document.querySelector('.dev-modal');
+  const devModalClose = document.querySelector('.dev-modal-close');
+
+  if (devInfoBtn && devModal && devModalClose) {
+    devInfoBtn.addEventListener('click', () => {
+      devModal.style.display = 'flex';
+    });
+
+    devModalClose.addEventListener('click', () => {
+      devModal.style.display = 'none';
+    });
+
+    devModal.addEventListener('click', (e) => {
+      if (e.target === devModal) {
+        devModal.style.display = 'none';
+      }
+    });
+  }
+});
