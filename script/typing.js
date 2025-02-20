@@ -99,7 +99,7 @@ const texts = {
           "for (let i = 0; i < array.length; i++) { }"
         ]
       }
-    }
+    
   },
   en: {
     universal: {
@@ -176,7 +176,7 @@ const texts = {
   python: {
     easy: {
       normal: [
-        "def class return yield lambda if elif else for while break continue pass raise try except",
+        "def class return yield lambda if elif else for while do break continue pass raise try except",
         "import from as with open print input range len str int float list tuple dict set bool",
         "self super none true false and or not in is global nonlocal del assert match case",
         "list comprehension generator decorator iterator iterable sequence mapping callable hashable",
@@ -303,6 +303,18 @@ let totalTyped = 0;
 let isGameActive = false;
 
 document.addEventListener('DOMContentLoaded', () => {
+  const textDisplay = document.querySelector('.text-display');
+  const timerElement = document.querySelector('.timer');
+  const wpmElement = document.getElementById('wpm');
+  const accuracyElement = document.getElementById('accuracy');
+  const timeElement = document.getElementById('time');
+  const mobileInput = document.getElementById('mobile-input');
+  
+  if (!textDisplay || !timerElement || !wpmElement || !accuracyElement || !timeElement) {
+    console.error('Required elements not found');
+    return;
+  }
+
   document.addEventListener('selectstart', (e) => {
     e.preventDefault();
   });
@@ -311,84 +323,47 @@ document.addEventListener('DOMContentLoaded', () => {
   const subModeButtons = document.querySelectorAll('.sub-mode-btn');
   const languageSelector = document.querySelector('.language-selector');
   const restartButton = document.querySelector('.restart-btn');
-  const textDisplay = document.querySelector('.text-display');
 
-  if (!modeButtons.length || !subModeButtons.length || !languageSelector || !restartButton || !textDisplay) {
-    console.error('Required UI elements not found');
-    return;
-  }
-
-  initGame();
-
-  modeButtons.forEach(btn => {
-    btn.addEventListener('click', function() {
-      modeButtons.forEach(b => b.classList.remove('active'));
-      this.classList.add('active');
-      currentMode = this.textContent.toLowerCase();
-      initGame();
-    });
-  });
-
-  subModeButtons.forEach(btn => {
-    btn.addEventListener('click', function() {
-      subModeButtons.forEach(b => b.classList.remove('active'));
-      this.classList.add('active');
-      currentSubMode = this.dataset.mode;
-      initGame();
-    });
-  });
-
-  languageSelector.addEventListener('change', function() {
-    currentLanguage = this.value;
+  if (modeButtons.length && subModeButtons.length && languageSelector && restartButton) {
     initGame();
-  });
 
-  restartButton.addEventListener('click', initGame);
+    modeButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        modeButtons.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        currentMode = this.textContent.toLowerCase();
+        initGame();
+      });
+    });
+
+    subModeButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        subModeButtons.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        currentSubMode = this.dataset.mode;
+        initGame();
+      });
+    });
+
+    languageSelector.addEventListener('change', function() {
+      currentLanguage = this.value;
+      initGame();
+    });
+
+    restartButton.addEventListener('click', initGame);
+  }
 
   document.addEventListener('keydown', handleTyping);
 
-  document.addEventListener('touchend', function(event) {
-    event.preventDefault();
-    const touch = event.changedTouches[0];
-    const element = document.elementFromPoint(touch.clientX, touch.clientY);
-    
-    if (element && (element.classList.contains('mode-btn') || 
-        element.classList.contains('sub-mode-btn') || 
-        element.classList.contains('restart-btn'))) {
-      element.click();
-    }
-  });
-
-  document.addEventListener('touchmove', function(event) {
-    if (isGameActive) {
-      event.preventDefault();
-    }
-  }, { passive: false });
-
-  const typingArea = document.querySelector('.typing-area');
-  if (typingArea) {
-    typingArea.addEventListener('click', function() {
-      if (!isGameActive && /Mobi|Android/i.test(navigator.userAgent)) {
-        const input = document.createElement('input');
-        input.style.position = 'fixed';
-        input.style.opacity = '0';
-        input.style.top = '0';
-        input.style.left = '0';
-        document.body.appendChild(input);
-        input.focus();
-        
-        setTimeout(() => {
-          document.body.removeChild(input);
-        }, 100);
+  if (mobileInput) {
+    mobileInput.addEventListener('input', (e) => {
+      const char = e.target.value;
+      if (char) {
+        processTypedCharacter(char);
       }
+      mobileInput.value = '';
     });
   }
-
-  window.addEventListener('orientationchange', function() {
-    setTimeout(function() {
-      window.scrollTo(0, 0);
-    }, 200);
-  });
 });
 
 function initGame() {
@@ -468,39 +443,27 @@ function handleTyping(e) {
 
   if (!isGameActive) return;
 
-  if (/Mobi|Android/i.test(navigator.userAgent)) {
-    const input = e.target;
-    if (input.tagName === 'INPUT') {
-      const char = input.value.slice(-1);
-      if (char) {
-        processTypedCharacter(char);
-      }
-      input.value = '';
-    }
-  } else {
-    const currentChar = currentText[currentIndex];
-    const typedChar = e.key;
+  const currentChar = currentText[currentIndex];
 
-    if (typedChar === currentChar) {
-      markCharacter(currentIndex, 'correct');
-      currentIndex++;
-      totalTyped++;
-    } else if (e.key.length === 1) {
-      markCharacter(currentIndex, 'incorrect');
-      errors++;
-      totalTyped++;
-    }
-
-    if (currentIndex < currentText.length) {
-      updateCurrentCharacter();
-      
-      if (currentIndex > (currentText.length * 0.75)) {
-        appendMoreWords();
-      }
-    }
-
-    updateStats();
+  if (e.key === currentChar) {
+    markCharacter(currentIndex, 'correct');
+    currentIndex++;
+    totalTyped++;
+  } else if (e.key.length === 1) {
+    markCharacter(currentIndex, 'incorrect');
+    errors++;
+    totalTyped++;
   }
+
+  if (currentIndex < currentText.length) {
+    updateCurrentCharacter();
+    
+    if (currentIndex > (currentText.length * 0.75)) {
+      appendMoreWords();
+    }
+  }
+
+  updateStats();
 }
 
 function markCharacter(index, status) {
@@ -554,6 +517,7 @@ function appendMoreWords() {
   if (!difficultyTexts) return;
   
   const allWords = difficultyTexts.join(' ').split(' ');
+  
   const shuffledWords = allWords.sort(() => Math.random() - 0.5);
   
   const newWords = shuffledWords.slice(0, 20).join(' ');
